@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 export function StatCard({
   label,
   value,
@@ -12,13 +14,17 @@ export function StatCard({
   icon?: ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-line bg-surface-raised p-5">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-medium uppercase tracking-wide text-ink-muted">{label}</span>
+    <Card>
+      <CardHeader className="flex-row items-center justify-between">
+        <CardTitle className="text-xs font-medium uppercase tracking-wide text-ink-muted">
+          {label}
+        </CardTitle>
         {icon ? <div className="text-ink-muted">{icon}</div> : null}
-      </div>
-      <div className="mt-4 text-2xl font-semibold text-ink">{value}</div>
-      {trend ? <div className="mt-2 text-xs text-ink-muted">{trend}</div> : null}
-    </div>
+      </CardHeader>
+      <CardContent className="pt-0">
+        <div className="text-2xl font-semibold text-ink">{value}</div>
+        {trend ? <div className="mt-2 text-xs text-ink-muted">{trend}</div> : null}
+      </CardContent>
+    </Card>
   );
 }

@@ -6,6 +6,7 @@ import { Section } from '@/components/section';
 import { StatCard } from '@/components/stat-card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { jobActivity, jobOverview } from '@/data/jobs';
 
 export default function JobDetailPage() {
@@ -31,26 +32,30 @@ export default function JobDetailPage() {
       <Divider />
 
       <Section title="Current focus" description="What the team is working on today.">
-        <div className="rounded-2xl border border-line bg-surface-raised p-6 text-sm text-ink-muted">
-          <p className="text-base font-semibold text-ink">{jobOverview.currentPhase}</p>
-          <p className="mt-3">Risk: {jobOverview.risks}</p>
-        </div>
+        <Card>
+          <CardContent className="p-6 text-sm text-ink-muted">
+            <p className="text-base font-semibold text-ink">{jobOverview.currentPhase}</p>
+            <p className="mt-3">Risk: {jobOverview.risks}</p>
+          </CardContent>
+        </Card>
       </Section>
 
       <Section title="Latest activity" description="Live signal from jobsite updates.">
         <div className="space-y-4">
           {jobActivity.map((activity) => (
-            <div key={activity.title} className="rounded-2xl border border-line bg-surface-raised px-5 py-4">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-base font-semibold text-ink">{activity.title}</div>
-                  <p className="mt-2 text-sm text-ink-muted">{activity.detail}</p>
+            <Card key={activity.title}>
+              <CardContent className="p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <div className="text-base font-semibold text-ink">{activity.title}</div>
+                    <p className="mt-2 text-sm text-ink-muted">{activity.detail}</p>
+                  </div>
+                  <span className="flex items-center gap-2 text-xs text-ink-muted">
+                    <MapPin className="h-4 w-4" /> {activity.time}
+                  </span>
                 </div>
-                <span className="flex items-center gap-2 text-xs text-ink-muted">
-                  <MapPin className="h-4 w-4" /> {activity.time}
-                </span>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </Section>

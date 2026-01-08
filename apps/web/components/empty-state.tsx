@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { Card, CardContent } from '@/components/ui/card';
+
 export function EmptyState({
   title,
   description,
@@ -10,10 +12,12 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-start gap-3 rounded-2xl border border-dashed border-line-strong bg-surface px-6 py-8">
-      <div className="text-lg font-semibold text-ink">{title}</div>
-      <p className="max-w-xl text-sm text-ink-muted">{description}</p>
-      {action ? <div className="pt-2">{action}</div> : null}
-    </div>
+    <Card className="border-dashed border-line-strong bg-surface">
+      <CardContent className="flex flex-col items-start gap-3 p-6">
+        <div className="text-lg font-semibold text-ink">{title}</div>
+        <p className="max-w-xl text-sm text-ink-muted">{description}</p>
+        {action ? <div className="pt-2">{action}</div> : null}
+      </CardContent>
+    </Card>
   );
 }

@@ -27,8 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, 'min-h-screen')}
-      >
+      <body className={cn(inter.className, 'min-h-screen')}>
         <header className="border-b border-line bg-surface-raised">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
             <Link href="/" className="text-lg font-semibold tracking-tight">

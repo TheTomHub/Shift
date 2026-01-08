@@ -4,6 +4,7 @@ import { EmptyState } from '@/components/empty-state';
 import { PageHeader } from '@/components/page-header';
 import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface PageProps {
   params: { token: string };
@@ -32,14 +33,16 @@ export default async function SubPortalPage({ params }: PageProps) {
 
       <Section title="Today’s assignment" description="The details for your active scope.">
         {invite ? (
-          <div className="rounded-2xl border border-line bg-surface-raised p-6">
-            <div className="flex items-center gap-3 text-sm text-ink-muted">
-              <CheckCircle2 className="h-5 w-5 text-status-success" />
-              Invite verified for {invite.trade}
-            </div>
-            <div className="mt-4 text-xl font-semibold text-ink">{invite.jobName}</div>
-            <p className="mt-2 text-sm text-ink-muted">{invite.scope}</p>
-          </div>
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 text-sm text-ink-muted">
+                <CheckCircle2 className="h-5 w-5 text-status-success" />
+                Invite verified for {invite.trade}
+              </div>
+              <div className="mt-4 text-xl font-semibold text-ink">{invite.jobName}</div>
+              <p className="mt-2 text-sm text-ink-muted">{invite.scope}</p>
+            </CardContent>
+          </Card>
         ) : (
           <EmptyState
             title="Invite link needs review"
@@ -49,15 +52,17 @@ export default async function SubPortalPage({ params }: PageProps) {
       </Section>
 
       <Section title="Submit today’s log" description="Quick status keeps everyone aligned.">
-        <div className="rounded-2xl border border-line bg-surface-raised p-6">
-          <div className="flex items-center gap-3 text-sm text-ink-muted">
-            <ClipboardCheck className="h-5 w-5" />
-            PWA-ready form placeholder (runs through server route handlers).
-          </div>
-          <Button className="mt-4" disabled>
-            Submit log (coming soon)
-          </Button>
-        </div>
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex items-center gap-3 text-sm text-ink-muted">
+              <ClipboardCheck className="h-5 w-5" />
+              PWA-ready form placeholder (runs through server route handlers).
+            </div>
+            <Button className="mt-4" disabled>
+              Submit log (coming soon)
+            </Button>
+          </CardContent>
+        </Card>
       </Section>
     </div>
   );

@@ -6,6 +6,7 @@ import { PageHeader } from '@/components/page-header';
 import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 import { jobs } from '@/data/jobs';
 
 const statusTone = (status: string) => {
@@ -32,12 +33,16 @@ export default function JobsPage() {
         }
       />
 
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-line bg-surface-raised px-4 py-3 text-sm text-ink-muted">
-        <div className="flex items-center gap-2">
-          <Search className="h-4 w-4" />
-          <span>Search job name, address, or crew</span>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="relative flex-1">
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
+          <Input
+            placeholder="Search job name, address, or crew"
+            className="pl-10"
+            aria-label="Search jobs"
+          />
         </div>
-        <div>Updated 2 minutes ago</div>
+        <div className="text-sm text-ink-muted">Updated 2 minutes ago</div>
       </div>
 
       <Section title="Active jobs" description="High-signal snapshots with budget, progress, and crew status.">

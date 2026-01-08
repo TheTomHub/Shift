@@ -1,8 +1,5 @@
+import { cn } from '@/lib/utils';
+
 export function Skeleton({ className }: { className?: string }) {
-  return (
-    <div className={
-      `animate-pulse rounded-xl bg-line/40 ${className ?? ''}`.trim()
-    }
-    />
-  );
+  return <div className={cn('animate-pulse rounded-xl bg-line/40', className)} />;
 }

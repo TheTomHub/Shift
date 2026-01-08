@@ -5,6 +5,7 @@ import { EmptyState } from '@/components/empty-state';
 import { PageHeader } from '@/components/page-header';
 import { Section } from '@/components/section';
 import { StatCard } from '@/components/stat-card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const stats = [
@@ -35,24 +36,30 @@ export default function MarketingPage() {
         description="Every screen is designed for quick decisions, outdoor readability, and high trust with your subs."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-line bg-surface-raised p-6">
-            <h3 className="text-lg font-semibold text-ink">Clear status lanes</h3>
-            <p className="mt-2 text-sm text-ink-muted">
-              See which scopes are on track, at risk, or blocked without digging through tabs.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-line bg-surface-raised p-6">
-            <h3 className="text-lg font-semibold text-ink">Sub portal that stays simple</h3>
-            <p className="mt-2 text-sm text-ink-muted">
-              Invite subs by token, get daily check-ins, and keep logs in one feed.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-line bg-surface-raised p-6">
-            <h3 className="text-lg font-semibold text-ink">Decision-grade summaries</h3>
-            <p className="mt-2 text-sm text-ink-muted">
-              Capture risks, budget shifts, and next steps in a format ready for owners.
-            </p>
-          </div>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-ink">Clear status lanes</h3>
+              <p className="mt-2 text-sm text-ink-muted">
+                See which scopes are on track, at risk, or blocked without digging through tabs.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-ink">Sub portal that stays simple</h3>
+              <p className="mt-2 text-sm text-ink-muted">
+                Invite subs by token, get daily check-ins, and keep logs in one feed.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-ink">Decision-grade summaries</h3>
+              <p className="mt-2 text-sm text-ink-muted">
+                Capture risks, budget shifts, and next steps in a format ready for owners.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </Section>
 

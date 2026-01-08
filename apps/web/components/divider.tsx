@@ -1,3 +1,5 @@
+import { Separator } from '@/components/ui/separator';
+
 export function Divider() {
-  return <div className="h-px w-full bg-line" />;
+  return <Separator />;
 }
